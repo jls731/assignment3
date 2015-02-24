@@ -1,0 +1,58 @@
+IPython Section
+
+1) I used the '??' command and the path is /usr/lib/python2.7/posixpath.py
+
+In [11]: import os
+
+In [12]: os.path.abspath??
+Type:       function
+String Form:<function abspath at 0x7fa9fe3a79b0>
+File:       /usr/lib/python2.7/posixpath.py
+Definition: os.path.abspath(path)
+Source:
+def abspath(path):
+    """Return an absolute path."""
+    if not isabs(path):
+        if isinstance(path, _unicode):
+            cwd = os.getcwdu()
+        else:
+            cwd = os.getcwd()
+        path = join(cwd, path)
+    return normpath(path)
+
+
+2) Single shell command is 'ls | wc -l'
+
+Note that the value retrieved is a list so I converted it into an integer before assigning it to num
+
+In [83]: %sx ls | wc -l
+Out[83]: ['232']
+
+In [84]: map(int,_83)
+Out[84]: [232]
+
+In [85]: num = _84[0]
+
+3) I used the sqrt() function in the math module
+
+In [86]: math.sqrt(num)
+Out[86]: 15.231546211727817
+
+4) x*x is the fastest method
+
+In [91]: import numpy
+
+In [92]: %timeit x**2
+10000000 loops, best of 3: 98.3 ns per loop
+
+In [93]: %timeit x*x
+10000000 loops, best of 3: 84.4 ns per loop
+
+In [94]: %timeit numpy.square(x)
+1000000 loops, best of 3: 1.77 µs per loop
+
+5) There are 24 cell magic commands
+
+PyDev Section
+
+5) The console says: Hello World!
